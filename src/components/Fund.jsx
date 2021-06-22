@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Button, Space, Col, Input, Typography } from "antd";
-import { Connection, PublicKey } from "@solana/web3.js";
+import { Connection, PublicKey, LAMPORTS_PER_SOL } from "@solana/web3.js";
 
 const { Text } = Typography;
 
@@ -8,15 +8,21 @@ const Fund = () => {
   const [isFunded, setIsFunded] = useState(false);
   const [value, setValue] = useState("");
 
-  const fund = () => {
+  const fund = async () => {
     const url = process.env.REACT_APP_DEVNET_URL;
     const connection = new Connection(url);
 
     // Create a PublicKey address from the input value
-    // const pubkey = new PublicKey();
-    // console.log(pubkey);
+    const myAddress = new PublicKey(value);
+    const signature = await connection.requestAirdrop(myAddress, LAMPORTS_PER_SOL);
+
     // Call requestAirdrop
+    const result = await connection.confirmTransaction(signature);
+
+    console.log({ result });
+
     // On success, set isFunded to true
+    setIsFunded(true);
   };
 
   return (
