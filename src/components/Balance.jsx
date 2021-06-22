@@ -16,7 +16,7 @@ const Balance = () => {
     const connection = new Connection(url);
 
     // Create a PublicKey from the input value
-    const myAddress = value;
+    const myAddress = new PublicKey(value);
 
     // Call getBalance
     const myBalance = await connection.getBalance(myAddress);
@@ -24,7 +24,7 @@ const Balance = () => {
     console.log({ myBalance });
 
     // Set balance using setBalance and DECIMAL_OFFSET
-    // setBalance(myBalance / DECIMAL_OFFSET);
+    setBalance(myBalance / DECIMAL_OFFSET);
 
     console.log({ balance });
   };
