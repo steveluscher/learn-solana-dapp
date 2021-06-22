@@ -1,5 +1,5 @@
-import React from 'react';
-import { Alert, Button, Col, Space, Typography } from 'antd';
+import React, { useEffect } from "react";
+import { Alert, Button, Col, Space, Typography } from "antd";
 import { Keypair } from "@solana/web3.js";
 
 const { Text, Paragraph } = Typography;
@@ -7,18 +7,26 @@ const { Text, Paragraph } = Typography;
 const Account = ({ keypair, setKeypair }) => {
   const generateKeypair = () => {
     // Generate a Keypair
+    const newKeypair = Keypair.generate();
+    console.log({ newKeypair });
+
     // Save it to <App />'s state
-  }
+    setKeypair(newKeypair._keypair);
+  };
 
   // parse the address (as a string) from the keypair object
-  const publicKeyStr = "TBD";
+  // const string = keypair.toString();
+
+  const publicKeyStr = `${keypair.publicKey.toString()}`;
 
   return (
     <Col>
-      <Button type="primary" onClick={generateKeypair} style={{ marginBottom: "20px" }}>Generate a Keypair</Button>
-      {keypair &&
+      <Button type='primary' onClick={generateKeypair} style={{ marginBottom: "20px" }}>
+        Generate a Keypair
+      </Button>
+      {keypair && (
         <Col>
-          <Space direction="vertical">
+          <Space direction='vertical'>
             <Alert
               message={
                 <Space>
@@ -35,14 +43,14 @@ const Account = ({ keypair, setKeypair }) => {
                   <Text>It's accessible (and copyable) at the top right of this page.</Text>
                 </div>
               }
-              type="success"
+              type='success'
               showIcon
             />
           </Space>
         </Col>
-      }
+      )}
     </Col>
   );
-}
+};
 
-export default Account
+export default Account;
