@@ -110,13 +110,13 @@ const Program = () => {
   const greet = async () => {
     // Load the payer's Keypair from the Uint8Array PAYER_SECRET_KEY
     // by using Keypair.fromsecretkey
-    // https://solana-labs.github.io/solana-web3.js/classes/keypair.html#fromsecretkey
+    // https://solana-labs.github.io/solana-web3.js/v1.x/classes/keypair.html#fromsecretkey
   
     // Create the TransactionInstruction by passing keys, programId and data
     // For data you can pass Buffer.alloc(0) as all the program's instructions are the same
   
     // Call sendAndConfirmTransaction
-    // https://solana-labs.github.io/solana-web3.js/modules.html#sendandconfirmtransaction
+    // https://solana-labs.github.io/solana-web3.js/v1.x/modules.html#sendandconfirmtransaction
     // On success, call getGreetings() to fetch the greetings counter
   }
 

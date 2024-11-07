@@ -143,6 +143,6 @@ export default Transfer
 // CLI https://docs.solana.com/cli/transfer-tokens#transfer-tokens-from-your-first-wallet-to-the-second-address
 
 // Random example code from Google https://githubmemory.com/repo/1Crazymoney/math-solana-js
-// web3.js docs https://solana-labs.github.io/solana-web3.js/modules.html#sendandconfirmtransaction
+// web3.js docs https://solana-labs.github.io/solana-web3.js/v1.x/modules.html#sendandconfirmtransaction
 
 // SEE lib/transfer.js for working code
